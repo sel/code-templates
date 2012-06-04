@@ -31,7 +31,7 @@ class Usage(Exception):
         self.msg = msg
 
 def process_arg(arg):
-    #handle arguments here
+    #handle program arguments here
     raise ArgumentError("Not implemented.")
 
 def main(argv=None):
@@ -58,8 +58,10 @@ def main(argv=None):
 
     # Error handling for the actual program.
     except Error, err:
-        print err.msg
+        print >>sys.stderr, err.msg
+        return 1
 
+    # Error handling for option parsing: show usage.
     except Usage, err:
         print >>sys.stderr, err.msg
         print >>sys.stderr, "for help use --help"

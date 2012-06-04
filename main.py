@@ -56,7 +56,7 @@ def main(argv=None):
         # start the real program here
         #
 
-    # Error handling for the
+    # Error handling for the actual program.
     except Error, err:
         print err.msg
 
